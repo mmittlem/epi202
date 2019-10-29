@@ -1,0 +1,8 @@
+v 1.0
+d Program modified by Geetha Iyer and Joy Shi
+d To analyze count and rate data for EPI202
+d Modified November 6, 2018
+d
+d
+d
+p epi202.pkg
