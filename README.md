@@ -18,7 +18,7 @@ EPI 202 is a continuation of EPI 201 and extends the concepts of study design, d
 `data` - The Evans county dataset used in all examples and documentation. 
 `EPI 202 Calculator` - An excel based calculator for estimators and inference, more information [here].(https://www.youtube.com/watch?v=n8COSSbBY80)  
 #### Package Downloads
-##### *These can be downloaded through your software package of choice allowing any future updates to be populated automatically. Download directions and references are found in each folder. 
+##### *These can be downloaded through your software package of choice allowing any future updates to be populated automatically. Download directions and references are found in each folder.*
 `R` - Functions for calculation of estimators and inference in R.  
 `SAS` - Functions for calculation of estimators and inference in SAS.  
 `Stata` - Functions for calculation of estimators and inference in Stata.  
