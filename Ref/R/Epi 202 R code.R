@@ -7,7 +7,7 @@
 #Nishant Kishore
 
 #Load packages
-#install if you don't have it on your system, just delete the hashtag and run it
+#install if you don't have it on your system, just delete the hashtag and run (installl.packages)
 #install.packages("dplyr")
 library(dplyr)
 #install.packages("devtools")
