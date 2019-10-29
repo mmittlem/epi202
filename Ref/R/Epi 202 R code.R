@@ -6,9 +6,6 @@
 #October 29, 2019
 #Nishant Kishore
 
-#Set Working Directory - set this to the file path where you saved your dataset
-setwd("PATH/TO/DATA/SET")
-
 #Load packages
 #install if you don't have it on your system, just delete the hashtag and run it
 #install.packages("dplyr")
@@ -18,8 +15,8 @@ library("devtools")
 devtools::install_github("mmittlem/epi202", subdir="epi202R")
 library(epi202R)
 
-#Load data
-evansData<-read.csv("evans_example_dat.csv", header=T)
+#Load data - automatically included in package download
+data(evansData)
 
 #Reminders before beginning:
 # 1) Exposure must be binary & exposed must have a higher value of your indicator than the unexposed
