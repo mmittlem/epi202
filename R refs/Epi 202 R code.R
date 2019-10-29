@@ -2,14 +2,21 @@
 #August 26, 2018
 #Samantha Molsberry
 
-#Set Working Directory - set this to the file path where you saved your dataset 
-setwd("C:/Users/Sam/Dropbox/Epi202 TA Materials Fall 2018/Homework/Sam Code") 
+#Updated with packaged functions
+#October 29, 2019
+#Nishant Kishore
+
+#Set Working Directory - set this to the file path where you saved your dataset
+setwd("PATH/TO/DATA/SET")
 
 #Load packages
+#install if you don't have it on your system, just delete the hashtag and run it
+#install.packages("dplyr")
 library(dplyr)
-#Source the epicalc package- set this to the file path where you saved the epicalc_v2 file 
-source("C:/Users/Sam/Documents/R/win-library/3.4/epi202calc/epicalc_v2.R")
- 
+#install.packages("devtools")
+library("devtools")
+devtools::install_github("mmittlem/epi202", subdir="epi202R")
+library(epi202R)
 
 #Load data
 evansData<-read.csv("evans_example_dat.csv", header=T)
@@ -49,7 +56,7 @@ summary(stratified.evans.riskTable, alpha=0.05) #changes names & alpha level as 
 
 crude.evans.rate<-as.data.frame(evansData %>% group_by(HTN)%>% #change 'evansData' to your dataset name, change HTN to the exposure of interest
                             summarise(Ncase=sum(CHD=='1'),#change CHD to your outcome, change '1' to the level that indicates an event
-                                      PY=sum(person_time))) #change person_time to the variable name containing follow-up time 
+                                      PY=sum(person_time))) #change person_time to the variable name containing follow-up time
 crude.evans.rateTable<-as.rateTable.new(crude.evans.rate$Ncase, crude.evans.rate$PY) #change names as necessary
 summary(crude.evans.rateTable, alpha=0.05) #change names & alpha level as necessary
 
@@ -70,7 +77,7 @@ summary(stratified.evans.rateTable, alpha=0.05) #change names & alpha level as n
 evansCC<-evansData%>%filter(!is.na(caco)) #change dataset name & outcome variable name as necessary
 crude.evans.cc<-as.data.frame(evansCC %>% #change evansData to your dataset name
                           group_by(HTN)%>% #change HTN to your exposure of interest
-                          summarise(Ncase=sum(caco=='case'), #change caco to your case-control status indicator variable, change 'case' the value that indicates a case event 
+                          summarise(Ncase=sum(caco=='case'), #change caco to your case-control status indicator variable, change 'case' the value that indicates a case event
                                     Ncontrol=sum(caco=='control'))) #change caco to your case-control status indicator variable, change 'control' the value that indicates a control observation
 
 crude.evans.ccTable<-as.ccTable.new(crude.evans.cc$Ncase, crude.evans.cc$Ncontrol)#change names as necessary
